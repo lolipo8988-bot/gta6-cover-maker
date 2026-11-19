@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neon Vice Cover Studio</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="app">
+  <section class="controls" aria-label="Cover controls">
+    <header class="brand">
+      <h1>Neon Vice <span>Cover Studio</span></h1>
+      <p>Turn your photos into a GTA-style multi-panel poster cover. Everything runs offline — photos stay on your machine.</p>
+    </header>
+
+    <section class="card" aria-label="Photos">
+      <h2>1 · Your photos</h2>
+      <p class="hint">Three slots. Upload your own, or keep the samples.</p>
+      <div class="slots">
+        <div class="slot" id="slot-a">
+          <img id="thumb-a" alt="" style="display:none">
+          <span class="slot-name" id="label-a">Photo A</span>
+          <label class="upload">Upload photo <input id="file-a" type="file" accept="image/*"></label>
+          <span class="samples">Sample:
+            <button type="button" data-sample-for="a" data-sample="boulevard">Boulevard</button>
+            <button type="button" data-sample-for="a" data-sample="neon">Neon</button>
+            <button type="button" data-sample-for="a" data-sample="pier">Pier</button>
+          </span>
+          <button type="button" class="fillall" data-fill="0">Fill all panels with A</button>
+        </div>
+        <div class="slot" id="slot-b">
+          <img id="thumb-b" alt="" style="display:none">
+          <span class="slot-name" id="label-b">Photo B</span>
+          <label class="upload">Upload photo <input id="file-b" type="file" accept="image/*"></label>
+          <span class="samples">Sample:
+            <button type="button" data-sample-for="b" data-sample="boulevard">Boulevard</button>
+            <button type="button" data-sample-for="b" data-sample="neon">Neon</button>
+            <button type="button" data-sample-for="b" data-sample="pier">Pier</button>
+          </span>
+          <button type="button" class="fillall" data-fill="1">Fill all panels with B</button>
+        </div>
+        <div class="slot" id="slot-c">
+          <img id="thumb-c" alt="" style="display:none">
+          <span class="slot-name" id="label-c">Photo C</span>
+          <label class="upload">Upload photo <input id="file-c" type="file" accept="image/*"></label>
+          <span class="samples">Sample:
+            <button type="button" data-sample-for="c" data-sample="boulevard">Boulevard</button>
+            <button type="button" data-sample-for="c" data-sample="neon">Neon</button>
+            <button type="button" data-sample-for="c" data-sample="pier">Pier</button>
+          </span>
+          <button type="button" class="fillall" data-fill="2">Fill all panels with C</button>
+        </div>
+      </div>
+      <button type="button" class="fillall off" id="fill-off">Each panel its own photo</button>
+    </section>
+
+    <section class="card" aria-label="Layout">
+      <h2>2 · Layout</h2>
+      <div class="layout-grid" id="layout-grid"></div>
+      <h2>3 · Caption &amp; grade</h2>
+      <label>Title <input id="title" type="text" maxlength="40" value="Sunset Heist"></label>
+      <label>Subtitle <input id="subtitle" type="text" maxlength="48" value="One Last Score"></label>
+      <div class="grade-grid" id="grade-grid"></div>
+    </section>
+
+    <section class="card" aria-label="Crop and export">
+      <h2>4 · Crop &amp; export</h2>
+      <p class="hint" id="crop-hint">Click a panel to select it, drag it to reposition its photo, scroll to zoom.</p>
+      <label>Zoom <input id="zoom" type="range" min="1" max="3" step="0.05" value="1"></label>
+      <label>Pan left–right <input id="panx" type="range" min="-1" max="1" step="0.01" value="0"></label>
+      <label>Pan up–down <input id="pany" type="range" min="-1" max="1" step="0.01" value="0"></label>
+      <div class="size-grid" id="size-grid"></div>
+      <button id="export" type="button" class="export-btn">Export PNG</button>
+      <p id="status" role="status"></p>
+      <p class="fineprint">Original design: no Rockstar logo, artwork, character or font. Display font Archivo Black (SIL Open Font License).</p>
+    </section>
+  </section>
+
+  <section class="stage" aria-label="Cover preview">
+    <canvas id="preview" width="1080" height="1080" aria-label="The cover preview"></canvas>
+    <p class="stage-hint">Drag a panel to reposition its photo · Scroll to zoom · Click a panel to select it</p>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
